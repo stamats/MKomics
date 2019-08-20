@@ -1,0 +1,25 @@
+import("stats")
+importFrom("utils", "combn")
+importFrom("graphics", "layout", "image", "axis", "box", "par")
+importFrom("grDevices", "colorRampPalette")
+importFrom("robustbase", "covMcd", "covOGK")
+importFrom("RColorBrewer", "brewer.pal")
+importFrom("limma", "lmFit", "makeContrasts", "contrasts.fit", "eBayes",
+           "topTable", "topTableF")
+export(corDist,
+       corPlot,
+       heatmapCol,
+       madMatrix,
+       madPlot,
+       mod.t.test,
+       mod.oneway.test,
+       oneWayAnova,
+       pairwise.logfc,
+       pairwise.fc,
+       pairwise.mod.t.test,
+       repMeans,
+       simPlot,
+       stringDist,
+       stringSim,
+       traceBack,
+       twoWayAnova)
