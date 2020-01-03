@@ -12,7 +12,7 @@ The package requires Bioconductor package limma, which can be installed via
 
 ```{r, eval = FALSE}
 ## Install package BiocManager
-install.package("BiocManager")
+install.packages("BiocManager")
 ## Use BiocManager to install limma
 BiocManager::install("limma")
 ```
