@@ -39,7 +39,8 @@ g2 <- factor(c(rep("group 1", 10), rep("group 2", 10)))
 mod.t.test(X, group = g2)
 
 ## Paired two-sample test
-mod.t.test(X, group = g2, paired = TRUE)
+subjID <- factor(rep(1:10, 2))
+mod.t.test(X, group = g2, paired = TRUE, subject = subjID)
 ```
 
 

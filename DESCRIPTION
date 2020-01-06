@@ -1,6 +1,6 @@
 Package: MKomics
 Version: 0.2
-Date: 2020-01-03
+Date: 2020-01-06
 Title: Omics Data Analysis
 Authors@R: person("Matthias", "Kohl", role = c("aut", "cre"),
                   email = "Matthias.Kohl@stamats.de", 

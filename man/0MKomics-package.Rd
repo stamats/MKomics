@@ -12,8 +12,8 @@ Contains several functions for analysis of omics data.
 \tabular{ll}{
 Package: \tab MKomics\cr
 Type: \tab Package\cr
-Version: \tab 0.1\cr
-Date: \tab 2019-08-20\cr
+Version: \tab 0.2\cr
+Date: \tab 2020-01-06\cr
 Depends: \tab R(>= 3.5.0)\cr
 Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma\cr
 Suggests: \tab gplots, knitr, rmarkdown\cr
