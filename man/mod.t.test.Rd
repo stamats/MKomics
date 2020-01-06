@@ -5,13 +5,14 @@
   Performs moderated t-tests based on Bioconductor package limma.
 }
 \usage{
-mod.t.test(x, group = NULL, paired = FALSE, adjust.method = "BH",
+mod.t.test(x, group = NULL, paired = FALSE, subject, adjust.method = "BH",
            sort.by = "none")
 }
 \arguments{
   \item{x}{a (non-empty) numeric matrix of data values.}
   \item{group}{an optional factor representing the groups.}
   \item{paired}{a logical indicating whether you want a paired test.}
+  \item{subject}{factor with subject IDs; required if \code{paired = TRUE}.}
   \item{adjust.method}{see \code{\link{p.adjust}}}
   \item{sort.by}{see \code{\link[limma]{toptable}}}, where \code{"logFC"}
   corresponds to difference in means.
@@ -60,6 +61,7 @@ fit3 <- eBayes(fit2)
 topTable(fit3, coef = 1, number = Inf, confint = TRUE, sort.by = "none")[,-4]
 
 ## Paired two-sample test
-mod.t.test(X, group = g2, paired = TRUE)
+subjID <- factor(rep(1:10, 2))
+mod.t.test(X, group = g2, paired = TRUE, subject = subjID)
 }
 \keyword{htest}

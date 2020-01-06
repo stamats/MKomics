@@ -1,5 +1,5 @@
-mod.t.test <- function(x, group = NULL, paired = FALSE, adjust.method = "BH",
-                       sort.by = "none"){
+mod.t.test <- function(x, group = NULL, paired = FALSE, subject, 
+                       adjust.method = "BH", sort.by = "none"){
   if(missing(x)) stop("'x' is missing")
   if(!is.matrix(x)) stop("'x' must be a matrix")
   if(is.null(group)) group <- factor(rep("A", ncol(x)))
@@ -12,21 +12,16 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, adjust.method = "BH",
     stop("'group' has more than two levels, use 'mod.oneway.test' instead")
   group.tmp <- factor(group, labels = LETTERS[1:nlev])
   if(paired){
+    if(missing(subject))
+      stop("Please provide subject ID!")
     if(nlev != 2)
       stop("'group' needs to have two levels (repeated measures)")
-    design <- model.matrix(~ 0 + group.tmp)
-    colnames(design) <- levels(group.tmp)
-    corfun <- function(x, g){
-      cor(x[g == "A"], x[g == "B"], use = "pairwise.complete.obs")
-    }
-    rho <- apply(x, 1, corfun, g = group.tmp)
-    arho <- atanh(pmax(-1, rho))
-    consens <- tanh(mean(arho, trim = 0.15, na.rm = TRUE))
-    fit1 <- lmFit(x, design, block = group.tmp, correlation = consens)
-    cont.matrix <- makeContrasts(AvsB="A-B", levels=design)
-    fit2 <- contrasts.fit(fit1, cont.matrix)
-    fit3 <- eBayes(fit2)
-    res <- topTable(fit3, coef = 1, adjust.method = adjust.method, number = Inf,
+    if(!is.factor(subject))  subject <- factor(subject)
+    design <- model.matrix(~ group.tmp + subject)
+#    colnames(design) <- levels(group.tmp)
+    fit1 <- lmFit(x, design)
+    fit2 <- eBayes(fit1)
+    res <- topTable(fit2, coef = 1, adjust.method = adjust.method, number = Inf,
                     confint = TRUE, sort.by = sort.by)[,-4]
     names(res) <- c("mean of differences", "2.5%", "97.5%", "t", "p.value",
                     "adj.p.value", "B")
