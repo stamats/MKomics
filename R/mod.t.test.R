@@ -21,10 +21,15 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, subject,
 #    colnames(design) <- levels(group.tmp)
     fit1 <- lmFit(x, design)
     fit2 <- eBayes(fit1)
-    res <- topTable(fit2, coef = 1, adjust.method = adjust.method, number = Inf,
-                    confint = TRUE, sort.by = sort.by)[,-4]
+    res <- topTable(fit2, coef = "group.tmpB", adjust.method = adjust.method, 
+                    number = Inf, confint = TRUE, sort.by = sort.by)[,-4]
     names(res) <- c("mean of differences", "2.5%", "97.5%", "t", "p.value",
                     "adj.p.value", "B")
+    meanA <- rowMeans(x[,group.tmp == "A"])
+    meanB <- rowMeans(x[,group.tmp == "B"])
+    res <- data.frame(res, meanA, meanB, check.names = FALSE)
+    levs <- levels(group)
+    names(res)[8:9] <- paste("mean of", levs)
   }else{
     if(nlev == 1){
       design <- matrix(1, nrow = ncol(x), ncol = 1)
@@ -38,7 +43,7 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, subject,
       design <- model.matrix(~ 0 + group.tmp)
       colnames(design) <- levels(group.tmp)
       fit1 <- lmFit(x, design)
-      cont.matrix <- makeContrasts(AvsB="A-B", levels=design)
+      cont.matrix <- makeContrasts(AvsB="B-A", levels=design)
       fit2 <- contrasts.fit(fit1, cont.matrix)
       fit3 <- eBayes(fit2)
       res <- topTable(fit3, coef = 1, adjust.method = adjust.method, number = Inf,
