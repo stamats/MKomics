@@ -84,6 +84,15 @@ gr <- factor(c(rep("A1", 5), rep("B2", 5), rep("C3", 5), rep("D4", 5)))
 mod.oneway.test(X, gr)
 ```
 
+We can also perform a moderated one-way ANOVA with repeated measures.
+```{r}
+X <- rbind(matrix(rnorm(6*18), nrow = 6, ncol = 18),
+           matrix(rnorm(6*18, mean = 1), nrow = 6, ncol = 18))
+gr <- factor(c(rep("T1", 6), rep("T2", 6), rep("T3", 6)))
+subjectID <- factor(c(rep(1:6, 3)))
+mod.oneway.test(X, gr, repeated = TRUE, subject = subjectID)
+```
+
 
 ### Pairwise moderated t-tests
 As a optional post-hoc analysis after mod.oneway.test one can use pairwise
@@ -304,3 +313,6 @@ traceBack(d, global = FALSE)
 ```{r}
 sessionInfo()
 ```
+
+
+## References
