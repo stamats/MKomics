@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
     toc: true
+bibliography: MKomics.bib
 vignette: >
   %\VignetteIndexEntry{MKomics}
   %\VignetteEngine{knitr::rmarkdown}
@@ -26,15 +27,15 @@ for the analysis of omics data. It includes:
 
 - compute one- and two-way ANOVA 
 
-- simplified interface to package 'limma' (Ritchie et al. (2015), <doi:10.1093/nar/gkv007>) 
-for moderated t-test and one-way ANOVA 
+- simplified interface to package 'limma' [@limma] for moderated t-test and 
+one-way ANOVA 
 
 - Hamming and the Levenshtein (edit) distance of strings as well as optimal 
-alignment scores for global (Needleman-Wunsch) and local (Smith-Waterman) alignments 
-with constant gap penalties (Merkl and Waack (2009), ISBN:978-3-527-32594-8).
+alignment scores for global (Needleman-Wunsch) and local (Smith-Waterman) 
+alignments with constant gap penalties [@Merkl2009].
+
 
 The package requires Bioconductor package limma, which can be installed via
-
 ```{r, eval = FALSE}
 ## Install package BiocManager
 install.packages("BiocManager")
@@ -51,10 +52,10 @@ library(MKomics)
 ## Moderated Tests Based on Package limma
 The functions to compute the moderated t-test and one-way ANOVA were motivated 
 by the fact that my students had problems to understand and correctly adapt the 
-code of the limma package.
+code of the limma package [@limma].
 
 ### Moderated t-Test
-We generate some artificial data and compute t-tests.
+We generate some artificial data and compute moderated t-tests.
 ```{r}
 ## One-sample test
 X <- matrix(rnorm(10*20, mean = 1), nrow = 10, ncol = 20)
@@ -86,8 +87,8 @@ mod.oneway.test(X, gr)
 
 ### Pairwise moderated t-tests
 As a optional post-hoc analysis after mod.oneway.test one can use pairwise
-moderated t-tests. One should carefully think about the adjustment of p values
-in this context.
+moderated t-tests (only unpaired). One should carefully think about the 
+adjustment of p values in this context.
 ```{r}
 pairwise.mod.t.test(X, gr)
 ```
@@ -99,7 +100,8 @@ pairwise.
 
 ### FC and logFC
 In the analysis of omics data, the FC or logFC are important 
-measures and are often used in combination with (adjusted) p values.
+measures of effect size and are often used in combination with (adjusted) 
+p values [@Shi2006].
 ```{r}
 x <- rnorm(100) ## assumed as log-data
 g <- factor(sample(1:4, 100, replace = TRUE))
@@ -122,7 +124,7 @@ pairwise.logfc(x, g, ave = median)
 
 ## Aggregating Technical Replicates
 In case of omics experiments it is often the case that technical replicates 
-are determined and hence it is part of the preprocessing of the raw data to 
+are measured and hence it is part of the preprocessing of the raw data to 
 aggregate these technical replicates. This is the purpose of function repMeans.
 ```{r}
 M <- matrix(rnorm(100), ncol = 5)
@@ -156,7 +158,8 @@ In the analysis of omics data correlation and absolute correlation distance
 matrices are often used during quality control. Function corDist can compute
 the Pearson, Spearman, Kendall or Cosine sample correlation and absolute correlation
 as well as the minimum covariance determinant or the orthogonalized 
-Gnanadesikan-Kettenring correlation and absolute correlation.
+Gnanadesikan-Kettenring correlation and absolute correlation implemented in
+package robustbase [@robustbase].
 ```{r}
 M <- matrix(rcauchy(1000), nrow = 5)
 ## Pearson
@@ -169,7 +172,8 @@ corDist(M, method = "mcd")
 
 
 ## MAD Matrix
-In case of outliers the MAD (median absolute deviation = median of the absolute deviations from the median) may be useful as dispersion measure.
+In case of outliers the MAD (median absolute deviation = median of the absolute 
+deviations from the median) may be useful as measure of scale.
 ```{r}
 madMatrix(t(M))
 ```
@@ -200,7 +204,8 @@ corPlot(x, new = TRUE, minCor = -0.5, labels = TRUE,
 
 ## Colors for Heatmaps
 Nowadays there are better solutions e.g. provided by Bioconductor package 
-complexHeatmaps. This was my solution to get a better coloring of heatmaps.
+ComplexHeatmap [@ComplexHeatmap]. This is my solution to get a better 
+coloring of heatmaps.
 ```{r, fig.width=7, fig.height=9}
 ## generate some random data
 data.plot <- matrix(rnorm(100*50, sd = 1), ncol = 50)
@@ -229,7 +234,7 @@ heatmap.2(data.plot, col = farbe, trace = "none", tracecol = "black",
 In Bioinformatics the (pairwise and multiple) alignment of strings is an 
 important topic. For this one can use the distance or similarity between 
 strings. The Hamming and the the Levenshtein (edit) distance are 
-implemented in function stringDist.
+implemented in function stringDist [@Merkl2009].
 ```{r}
 x <- "GACGGATTATG"
 y <- "GATCGGAATAG"
@@ -251,8 +256,9 @@ The characters in the trace-back matrix reflect insertion of a gap in string y
 
 ### String Similarities
 The function stringSim computes the optimal alignment scores for global 
-(Needleman-Wunsch) and local (Smith-Waterman) alignments with constant gap penalties.
-Scoring and trace-back matrix are again attached as attributes to the results. 
+(Needleman-Wunsch) and local (Smith-Waterman) alignments with constant gap 
+penalties [@Merkl2009]. Scoring and trace-back matrix are again attached as 
+attributes to the results. 
 ```{r}
 ## optimal global alignment score
 d <- stringSim(x, y)
@@ -272,7 +278,8 @@ The entry stop indicates that the minimum similarity score has been reached.
 
 ### Optimal Alignment
 Finally, the function traceBack computes an optimal global or local alignment 
-based on a trace back matrix as provided by function stringDist or stringSim.
+based on a trace back matrix as provided by function stringDist or 
+stringSim [@Merkl2009].
 ```{r}
 x <- "GACGGATTATG"
 y <- "GATCGGAATAG"
