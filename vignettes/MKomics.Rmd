@@ -13,7 +13,34 @@ vignette: >
 
 
 ## Introduction  
-Package MKomics includes a collection of functions that I find useful for the analysis of omics data.
+Package MKomics includes a collection of functions that I found and find useful 
+for the analysis of omics data. It includes:
+
+- similarity plots based on correlation and median absolute deviation (MAD) 
+
+- adjusting colors for heatmaps 
+
+- aggregate technical replicates 
+
+- calculate pairwise fold-changes and log fold-changes 
+
+- compute one- and two-way ANOVA 
+
+- simplified interface to package 'limma' (Ritchie et al. (2015), <doi:10.1093/nar/gkv007>) 
+for moderated t-test and one-way ANOVA 
+
+- Hamming and the Levenshtein (edit) distance of strings as well as optimal 
+alignment scores for global (Needleman-Wunsch) and local (Smith-Waterman) alignments 
+with constant gap penalties (Merkl and Waack (2009), ISBN:978-3-527-32594-8).
+
+The package requires Bioconductor package limma, which can be installed via
+
+```{r, eval = FALSE}
+## Install package BiocManager
+install.packages("BiocManager")
+## Use BiocManager to install limma
+BiocManager::install("limma")
+```
 
 We first load the package.
 ```{r}
@@ -22,10 +49,12 @@ library(MKomics)
 
 
 ## Moderated Tests Based on Package limma
+The functions to compute the moderated t-test and one-way ANOVA were motivated 
+by the fact that my students had problems to understand and correctly adapt the 
+code of the limma package.
+
 ### Moderated t-Test
-The function to compute the moderated t-test was motivated by the fact that 
-my students have problems to understand and correctly adapt the code of 
-the limma package.
+We generate some artificial data and compute t-tests.
 ```{r}
 ## One-sample test
 X <- matrix(rnorm(10*20, mean = 1), nrow = 10, ncol = 20)
@@ -45,9 +74,7 @@ mod.t.test(X, group = g2, paired = TRUE, subject = subjID)
 
 
 ### Moderated 1-Way ANOVA
-The function to compute a moderated 1-way ANOVA was motivated by the fact that 
-my students have problems to understand and correctly adapt the code of 
-the limma package.
+We generate some artifical data and compute moderated one-way ANOVAs.
 ```{r}
 set.seed(123)
 X <- rbind(matrix(rnorm(5*20), nrow = 5, ncol = 20),
