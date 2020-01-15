@@ -3,17 +3,24 @@
 \alias{MKomics}
 \docType{package}
 \title{
-Functions for Omics Data Analysis.
+Omics Data Analysis.
 }
 \description{
-Contains several functions for analysis of omics data.
+Similarity plots based on correlation and median absolute deviation (MAD); 
+adjusting colors for heatmaps; aggregate technical replicates; calculate 
+pairwise fold-changes and log fold-changes; computate one- and two-way ANOVA; 
+simplified interface to package 'limma' (Ritchie et al. (2015), <doi:10.1093/nar/gkv007>) 
+for moderated t-test and one-way ANOVA; Hamming and the Levenshtein (edit) 
+distance of strings as well as optimal alignment scores for global (Needleman-Wunsch) 
+and local (Smith-Waterman) alignments with constant gap penalties 
+(Merkl and Waack (2009), ISBN:978-3-527-32594-8).
 }
 \details{
 \tabular{ll}{
 Package: \tab MKomics\cr
 Type: \tab Package\cr
 Version: \tab 0.2\cr
-Date: \tab 2020-01-06\cr
+Date: \tab 2020-01-15\cr
 Depends: \tab R(>= 3.5.0)\cr
 Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma\cr
 Suggests: \tab gplots, knitr, rmarkdown\cr

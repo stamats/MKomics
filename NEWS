@@ -6,6 +6,7 @@
 ## Version 0.2
 ###########################################################
 - Changed computations in case of paired moderated t test.
+- Added moderated repeated-measures one-way ANOVA to mod.oneway.test
 
 ###########################################################
 ## Version 0.1
