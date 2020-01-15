@@ -2,7 +2,8 @@
 \alias{pairwise.mod.t.test}
 \title{Pairwise Moderated t-Tests}
 \description{
-  Performs pairwise moderated t-tests based on Bioconductor package limma.
+  Performs pairwise moderated t-tests (unpaired) based on Bioconductor package 
+  limma.
 }
 \usage{
 pairwise.mod.t.test(x, group, adjust.method = "BH", sort.by = "none")
@@ -22,10 +23,9 @@ pairwise.mod.t.test(x, group, adjust.method = "BH", sort.by = "none")
   A data.frame with the results.
 }
 \references{
-  B. Phipson, S. Lee, I.J. Majewski, W.S. Alexander, G.H. Smyth (2016). Robust
-  hyperparameter estimation protects against hypervariable genes and improves
-  power to detect differential expression. \emph{Annals of Applied Statistics}
-  10(2), 946-963.
+  Ritchie, M.E., Phipson, B., Wu, D., Hu, Y., Law, C.W., Shi, W., and Smyth, G.K.
+  (2015). limma powers differential expression analyses for RNA-sequencing and
+  microarray studies. \emph{Nucleic Acids Research} 43(7), e47.
 }
 \seealso{\code{\link{oneway.test}}, \code{mod.t.test}}
 \examples{
