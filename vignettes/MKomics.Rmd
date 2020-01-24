@@ -229,12 +229,10 @@ nrcol <- 128
 library(gplots)
 library(RColorBrewer)
 myCol <- rev(colorRampPalette(brewer.pal(10, "RdBu"))(nrcol))
-heatmap.2(data.plot, col =  myCol, trace = "none", tracecol = "black",
-          main = "standard colors")
-farbe <- heatmapCol(data = data.plot, col = myCol, 
-                    lim = min(abs(range(data.plot)))-1)
-heatmap.2(data.plot, col = farbe, trace = "none", tracecol = "black",
-          main = "heatmapCol colors")
+heatmap(data.plot, col =  myCol, main = "standard colors")
+myCol2 <- heatmapCol(data = data.plot, col = myCol, 
+                     lim = min(abs(range(data.plot)))-1)
+heatmap(data.plot, col = myCol2, main = "heatmapCol colors")
 ```
 
 

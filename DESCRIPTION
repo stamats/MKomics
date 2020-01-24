@@ -9,7 +9,7 @@ Author: Matthias Kohl [aut, cre] (0000-0001-9514-8910)
 Maintainer: Matthias Kohl <Matthias.Kohl@stamats.de>
 Depends: R(>= 3.5.0)
 Imports: stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma
-Suggests: gplots, knitr, rmarkdown
+Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Description: Similarity plots based on correlation and median absolute deviation (MAD); adjusting colors for heatmaps; aggregate technical replicates; calculate pairwise fold-changes and log fold-changes; compute one- and two-way ANOVA; simplified interface to package 'limma' (Ritchie et al. (2015), <doi:10.1093/nar/gkv007> ) for moderated t-test and one-way ANOVA; Hamming and Levenshtein (edit) distance of strings as well as optimal alignment scores for global (Needleman-Wunsch) and local (Smith-Waterman) alignments with constant gap penalties (Merkl and Waack (2009), ISBN:978-3-527-32594-8).
 License: LGPL-3
