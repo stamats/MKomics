@@ -1,5 +1,5 @@
 Package: MKomics
-Version: 0.3
+Version: 0.4
 Date: 2020-01-24
 Title: Omics Data Analysis
 Authors@R: person("Matthias", "Kohl", role = c("aut", "cre"),

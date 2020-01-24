@@ -19,11 +19,11 @@ and local (Smith-Waterman) alignments with constant gap penalties
 \tabular{ll}{
 Package: \tab MKomics\cr
 Type: \tab Package\cr
-Version: \tab 0.3\cr
+Version: \tab 0.4\cr
 Date: \tab 2020-01-24\cr
 Depends: \tab R(>= 3.5.0)\cr
 Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma\cr
-Suggests: \tab gplots, knitr, rmarkdown\cr
+Suggests: \tab knitr, rmarkdown\cr
 License: \tab LGPL-3\cr
 URL: \tab http://www.stamats.de/\cr
 }
