@@ -8,7 +8,8 @@ madPlot <- function (x, new = FALSE, col, maxMAD = 3, labels = FALSE,
 
     if(missing(col))
       col <- rev(colorRampPalette(brewer.pal(8, "RdYlGn"))(128))
-
+    oldpar <- par()
+    on.exit(par(oldpar))
     if(protocol)
       layout(matrix(c(1, 2), 1, 2), widths = c(10, 3))
     else
