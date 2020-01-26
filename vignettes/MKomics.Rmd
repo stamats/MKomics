@@ -226,7 +226,6 @@ data.plot[1:70, 31:50] <- rnorm(1400, sd = 1.2)
 data.plot[71:100, 1:30] <- rnorm(900, sd = 1.2)
 nrcol <- 128
 ## Load required packages
-library(gplots)
 library(RColorBrewer)
 myCol <- rev(colorRampPalette(brewer.pal(10, "RdBu"))(nrcol))
 heatmap(data.plot, col =  myCol, main = "standard colors")
