@@ -1,5 +1,5 @@
 mod.t.test <- function(x, group = NULL, paired = FALSE, subject, 
-                       adjust.method = "BH", sort.by = "none"){
+                       adjust.method = "BH", sort.by = "none", na.rm = TRUE){
   if(missing(x)) stop("'x' is missing")
   if(!is.matrix(x)) stop("'x' must be a matrix")
   if(is.null(group)) group <- factor(rep("A", ncol(x)))
@@ -25,8 +25,8 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, subject,
                     number = Inf, confint = TRUE, sort.by = sort.by)[,-4]
     names(res) <- c("mean of differences", "2.5%", "97.5%", "t", "p.value",
                     "adj.p.value", "B")
-    meanA <- rowMeans(x[,group.tmp == "A"])
-    meanB <- rowMeans(x[,group.tmp == "B"])
+    meanA <- rowMeans(x[,group.tmp == "A"], na.rm = na.rm)
+    meanB <- rowMeans(x[,group.tmp == "B"], na.rm = na.rm)
     res <- data.frame(res, meanA, meanB, check.names = FALSE)
     levs <- levels(group)
     names(res)[8:9] <- paste("mean of", levs)
@@ -48,8 +48,8 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, subject,
       fit3 <- eBayes(fit2)
       res <- topTable(fit3, coef = 1, adjust.method = adjust.method, number = Inf,
                       confint = TRUE, sort.by = sort.by)[,-4]
-      meanA <- rowMeans(x[,group.tmp == "A"])
-      meanB <- rowMeans(x[,group.tmp == "B"])
+      meanA <- rowMeans(x[,group.tmp == "A"], na.rm = na.rm)
+      meanB <- rowMeans(x[,group.tmp == "B"], na.rm = na.rm)
       names(res) <- c("difference in means", "2.5%", "97.5%", "t", "p.value",
                       "adj.p.value", "B")
       res <- data.frame(res, meanA, meanB, check.names = FALSE)

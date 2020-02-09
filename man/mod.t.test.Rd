@@ -6,7 +6,7 @@
 }
 \usage{
 mod.t.test(x, group = NULL, paired = FALSE, subject, adjust.method = "BH",
-           sort.by = "none")
+           sort.by = "none", na.rm = TRUE)
 }
 \arguments{
   \item{x}{a (non-empty) numeric matrix of data values.}
@@ -16,6 +16,8 @@ mod.t.test(x, group = NULL, paired = FALSE, subject, adjust.method = "BH",
   \item{adjust.method}{see \code{\link{p.adjust}}}
   \item{sort.by}{see \code{\link[limma]{toptable}}}, where \code{"logFC"}
   corresponds to difference in means.
+  \item{na.rm}{logical. Should missing values (including NaN) be omitted from 
+  the calculations of group means?}
 }
 \details{
   The function uses Bioconductor package limma to compute moderated t-tests.
