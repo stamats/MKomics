@@ -3,6 +3,12 @@
 ###############################################################################
 
 ###########################################################
+## Version 0.5
+###########################################################
+- resetting old graphics parameters with no.readonly = TRUE
+- mod.t.test gained argument na.rm for computing group means
+
+###########################################################
 ## Version 0.4
 ###########################################################
 - Removed (orphaned) package 'gplots' from suggests field, use standard 
