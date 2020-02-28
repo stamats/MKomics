@@ -3,6 +3,8 @@ The repository includes the development version of R package MKomics
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/MKomics)](http://cran.r-project.org/package=MKomics)
+[![cran checks](https://cranchecks.info/badges/summary/MKomics)](https://cran.r-project.org/web/checks/check_results_MKomics.html)
 
 ## Description
 Similarity plots based on correlation and median absolute deviation (MAD); 
@@ -27,6 +29,9 @@ BiocManager::install("limma")
 For the installation of package MKomics use
 
 ```{r, eval = FALSE}
+## Installation of CRAN version
+install.packages("MKomics")
+
 ## Development version from GitHub
 # install.packages("remotes")
 remotes::install_github("stamats/MKomics")
