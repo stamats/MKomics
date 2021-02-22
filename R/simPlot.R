@@ -70,7 +70,5 @@ simPlot <- function (x, col, minVal = 0.5, labels = FALSE,
     }
 
     layout(1)
-    par(mar = c(5, 4, 4, 2) + 0.1)
-
     invisible()
 }

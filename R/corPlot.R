@@ -79,6 +79,5 @@ corPlot <- function (x, new = FALSE, col, minCor = 0.5, labels = FALSE, lab.both
             cex.axis = cex.axis.bar)
     }
     layout(1)
-    par(mar = c(5, 4, 4, 2) + 0.1)
     invisible()
 }

@@ -19,8 +19,8 @@ and local (Smith-Waterman) alignments with constant gap penalties
 \tabular{ll}{
 Package: \tab MKomics\cr
 Type: \tab Package\cr
-Version: \tab 0.5\cr
-Date: \tab 2020-02-09\cr
+Version: \tab 0.6\cr
+Date: \tab 2021-02-22\cr
 Depends: \tab R(>= 3.5.0)\cr
 Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma\cr
 Suggests: \tab knitr, rmarkdown\cr
