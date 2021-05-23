@@ -1,14 +1,20 @@
 \name{simPlot}
 \alias{simPlot}
+\alias{simPlot2}
 \title{ Plot of a similarity matrix. }
 \description{
   Plot of similarity matrix. 
 }
 \usage{
 simPlot(x, col, minVal, labels = FALSE, lab.both.axes = FALSE, 
-          labcols = "black", title = "", cex.title = 1.2, 
-          protocol = FALSE, cex.axis = 0.8, 
-          cex.axis.bar = 1, signifBar = 2, ...)
+        labcols = "black", title = "", cex.title = 1.2, 
+        protocol = FALSE, cex.axis = 0.8, 
+        cex.axis.bar = 1, signifBar = 2, ...)
+        
+simPlot2(x, col, minVal, labels = FALSE, 
+         row.width = 6, column.height = 6, lab.both.axes = TRUE, 
+         fontsize.axis = 12, title = "", fontsize.title = 16, 
+         signifBar = 2)
 }
 \arguments{
   \item{x}{ quadratic data matrix. }
@@ -27,13 +33,19 @@ simPlot(x, col, minVal, labels = FALSE, lab.both.axes = FALSE,
   \item{cex.title}{ A numerical value giving the amount by which plotting text
                 and symbols should be magnified relative to the default;
                 cf. \code{\link[graphics]{par}}, \code{cex.main}. }
+  \item{fontsize.title}{ numerical value giving the fontsize of the title. }
   \item{protocol}{ logical, display color bar without numbers }
   \item{cex.axis}{ The magnification to be used for axis annotation relative to the 
                          current setting of 'cex'; cf. \code{\link[graphics]{par}}.}
+  \item{fontsize.axis}{ numerical value giving the fontsize of the axis labels.}
   \item{cex.axis.bar}{ The magnification to be used for axis annotation of the color 
                                bar relative to the current setting of 'cex'; cf. 
                                \code{\link[graphics]{par}}.}
   \item{signifBar}{ integer indicating the precision to be used for the bar.}
+  \item{row.width}{ numerical value giving width of the row in centimeters; i.e., 
+                    can be used to change space available for the labels.}
+  \item{column.height}{ numerical value giving the height of the column in centimeters; i.e., 
+                        can be used to change space available for the labels.}
   \item{\dots}{ graphical parameters may also be supplied as arguments to the
           function (see \code{\link[graphics]{par}}). For comparison purposes, 
           it is good to set \code{zlim=c(-1,1)}. }
@@ -55,7 +67,7 @@ simPlot(x, col, minVal, labels = FALSE, lab.both.axes = FALSE,
 }
 \author{ Matthias Kohl \email{Matthias.Kohl@stamats.de}}
 \note{
-  The function is a slight modification of function \code{\link[MKmisc]{corPlot}} of package MKmisc.
+  The function is a slight modification of function \code{\link{corPlot}}.
 }
 \examples{
 ## only a dummy example
@@ -67,5 +79,9 @@ simPlot(M.cor, minVal = min(M.cor))
 simPlot(M.cor, minVal = min(M.cor), lab.both.axes = TRUE)
 simPlot(M.cor, minVal = min(M.cor), protocol = TRUE)
 simPlot(M.cor, minVal = min(M.cor), signifBar = 1)
+
+simPlot2(M.cor, minVal = min(M.cor))
+simPlot2(M.cor, minVal = min(M.cor), lab.both.axes = FALSE)
+simPlot2(M.cor, minVal = min(M.cor), signifBar = 1)
 }
-\keyword{univar}
+\keyword{hplot}
