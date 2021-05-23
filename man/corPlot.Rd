@@ -1,5 +1,6 @@
 \name{corPlot}
 \alias{corPlot}
+\alias{corPlot2}
 \title{ Plot of similarity matrix based on correlation }
 \description{
   Plot of similarity matrix. This function is a slight modification of function
@@ -7,10 +8,15 @@
 }
 \usage{
 corPlot(x, new = FALSE, col, minCor, 
-          labels = FALSE, lab.both.axes = FALSE, labcols = "black", 
-          title = "", cex.title = 1.2, 
-          protocol = FALSE, cex.axis = 0.8, 
-          cex.axis.bar = 1, signifBar = 2, ...)
+        labels = FALSE, lab.both.axes = FALSE, labcols = "black", 
+        title = "", cex.title = 1.2, 
+        protocol = FALSE, cex.axis = 0.8, 
+        cex.axis.bar = 1, signifBar = 2, ...)
+        
+corPlot2(x, new = FALSE, col, minCor = 0.5, labels = FALSE, 
+         row.width = 6, column.height = 6, lab.both.axes = TRUE, 
+         fontsize.axis = 12, title = "", fontsize.title = 16, 
+         signifBar = 2)
 }
 \arguments{
   \item{x}{ data or correlation matrix, respectively }
@@ -18,7 +24,7 @@ corPlot(x, new = FALSE, col, minCor,
               If \code{new=TRUE}, the correlation matrix for the columns of 
               \code{x} is computed and displayed in the image. }
   \item{col}{ colors palette for image. If missing, the \code{RdYlGn} palette
-      of \code{RColorBrewer} is used. }
+      of \code{RColorBrewer} is used.}
   \item{minCor}{numeric value in [-1,1], used to adjust \code{col}}
   \item{labels}{ vector of character strings to be placed at the tickpoints,
           labels for the columns of \code{x}. }
@@ -29,16 +35,22 @@ corPlot(x, new = FALSE, col, minCor,
                   length as \code{labels}, in which case a color is specified 
                   for the label of each column of \code{x}. }
   \item{title}{ character string, overall title for the plot. }
-  \item{cex.title}{ A numerical value giving the amount by which plotting text
+  \item{cex.title}{ numerical value giving the amount by which plotting text
                 and symbols should be magnified relative to the default;
                 cf. \code{\link[graphics]{par}}, \code{cex.main}. }
-  \item{protocol}{ logical, display color bar without numbers }
+  \item{fontsize.title}{ numerical value giving the fontsize of the title. }
+  \item{protocol}{ logical, display color bar without numbers. }
   \item{cex.axis}{ The magnification to be used for axis annotation relative to the 
                          current setting of 'cex'; cf. \code{\link[graphics]{par}}.}
+  \item{fontsize.axis}{ numerical value giving the fontsize of the axis labels.}
   \item{cex.axis.bar}{ The magnification to be used for axis annotation of the color 
                                bar relative to the current setting of 'cex'; cf. 
                                \code{\link[graphics]{par}}.}
   \item{signifBar}{ integer indicating the precision to be used for the bar.}
+  \item{row.width}{ numerical value giving width of the row in centimeters; i.e., 
+                    can be used to change space available for the labels.}
+  \item{column.height}{ numerical value giving the height of the column in centimeters; i.e., 
+                        can be used to change space available for the labels.}
   \item{\dots}{ graphical parameters may also be supplied as arguments to the
           function (see \code{\link[graphics]{par}}). For comparison purposes, 
           it is good to set \code{zlim=c(-1,1)}. }
@@ -74,5 +86,9 @@ corPlot(M.cor, minCor = min(M.cor))
 corPlot(M.cor, minCor = min(M.cor), lab.both.axes = TRUE)
 corPlot(M.cor, minCor = min(M.cor), protocol = TRUE)
 corPlot(M.cor, minCor = min(M.cor), signifBar = 1)
+
+corPlot2(M.cor, minCor = min(M.cor))
+corPlot2(M.cor, minCor = min(M.cor), lab.both.axes = FALSE)
+corPlot2(M.cor, minCor = min(M.cor), signifBar = 1)
 }
-\keyword{univar}
+\keyword{hplot}

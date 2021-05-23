@@ -6,11 +6,16 @@ importFrom("robustbase", "covMcd", "covOGK")
 importFrom("RColorBrewer", "brewer.pal")
 importFrom("limma", "lmFit", "makeContrasts", "contrasts.fit", "eBayes",
            "topTable", "topTableF")
+importFrom("grid", "unit", "gpar")
+importFrom("circlize", "colorRamp2")
+importFrom("ComplexHeatmap", "Heatmap", "draw")
 export(corDist,
        corPlot,
+       corPlot2,
        heatmapCol,
        madMatrix,
        madPlot,
+       madPlot2,
        mod.t.test,
        mod.oneway.test,
        oneWayAnova,
@@ -19,6 +24,7 @@ export(corDist,
        pairwise.mod.t.test,
        repMeans,
        simPlot,
+       simPlot2,
        stringDist,
        stringSim,
        traceBack,
