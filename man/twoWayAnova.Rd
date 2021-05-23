@@ -3,8 +3,8 @@
 \docType{data}
 \title{ A function for Analysis of Variance }
 \description{
-  This function is a slight modification of function \code{\link[genefilter]{Anova}} of
-  package \code{"genefilter"}.
+  This function is a slight modification of function \code{Anova} of
+  package \pkg{genefilter}.
 }
 \usage{
 twoWayAnova(cov1, cov2, interaction, na.rm = TRUE)}
@@ -38,7 +38,7 @@ twoWayAnova(cov1, cov2, interaction, na.rm = TRUE)}
 \note{
   A first version of this function appeared in package SLmisc.
 }
-\seealso{ \code{\link[genefilter]{Anova}} }
+\seealso{ \code{\link[stats]{lm}}, \code{\link{oneWayAnova}} }
 \examples{
 set.seed(123)
 af1 <- twoWayAnova(c(rep(1,6),rep(2,6)), rep(c(rep(1,3), rep(2,3)), 2))

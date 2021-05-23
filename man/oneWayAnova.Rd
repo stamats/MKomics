@@ -3,8 +3,8 @@
 \docType{data}
 \title{ A function for Analysis of Variance }
 \description{
-  This function is a slight modification of function \code{\link[genefilter]{Anova}} of
-  package \code{"genefilter"}.
+  This function is a slight modification of function \code{Anova} of
+  package \pkg{genefilter}.
 }
 \usage{
 oneWayAnova(cov, na.rm = TRUE, var.equal = FALSE)}
@@ -27,7 +27,7 @@ oneWayAnova(cov, na.rm = TRUE, var.equal = FALSE)}
   The F statistic for an overall effect is computed and the corresponding
   p-value is returned.
 
-  The function \code{\link[genefilter]{Anova}} instead compares the computed 
+  The function \code{Anova} of package \pkg{genefilter} instead compares the computed 
   p-value to a prespecified p-value and returns \code{TRUE}, if the computed p-value
   is smaller than the prespecified one.
 }
@@ -47,7 +47,7 @@ oneWayAnova(cov, na.rm = TRUE, var.equal = FALSE)}
 \note{
   A first version of this function appeared in package SLmisc.
 }
-\seealso{ \code{\link[stats]{oneway.test}}, \code{\link[genefilter]{Anova}} }
+\seealso{ \code{\link[stats]{oneway.test}}, \code{\link{twoWayAnova}} }
 \examples{
 set.seed(123)
 af <- oneWayAnova(c(rep(1,5),rep(2,5)))
