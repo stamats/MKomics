@@ -1,5 +1,6 @@
 \name{madPlot}
 \alias{madPlot}
+\alias{madPlot2}
 \title{ Plot of similarity matrix based on MAD }
 \description{
   Plot of similarity matrix based on MAD between microarrays.
@@ -7,6 +8,11 @@
 \usage{
 madPlot(x, new = FALSE, col, maxMAD = 3, labels = FALSE, 
         labcols = "black", title = "", protocol = FALSE, ...)
+
+madPlot2(x, new = FALSE, col, maxMAD = 3, labels = FALSE, 
+         row.width = 6, column.height = 6, 
+         lab.both.axes = TRUE, fontsize.axis = 12,
+         title = "", fontsize.title = 16, signifBar = 2)
 }
 \arguments{
   \item{x}{ data or correlation matrix, respectively }
@@ -17,14 +23,22 @@ madPlot(x, new = FALSE, col, maxMAD = 3, labels = FALSE,
       of \code{RColorBrewer} is used. }
   \item{maxMAD}{ maximum MAD value displayed  }
   \item{labels}{ vector of character strings to be placed at the tickpoints,
-          labels for the columns of \code{x}. }
+                 labels for the columns of \code{x}. }
   \item{labcols}{ colors to be used for the labels of the columns of \code{x}.
                   \code{labcols} can have either length 1, in which case all 
                   the labels are displayed using the same color, or the same 
                   length as \code{labels}, in which case a color is specified 
                   for the label of each column of \code{x}. }
   \item{title}{ character string, overall title for the plot. }
+  \item{fontsize.title}{ numerical value giving the fontsize of the title. }
   \item{protocol}{ logical, display color bar without numbers }
+  \item{lab.both.axes}{ logical, display labels on both axes }
+  \item{fontsize.axis}{ numerical value giving the fontsize of the axis labels.}
+  \item{signifBar}{ integer indicating the precision to be used for the bar.}
+  \item{row.width}{ numerical value giving width of the row in centimeters; i.e., 
+                    can be used to change space available for the labels.}
+  \item{column.height}{ numerical value giving the height of the column in centimeters; i.e., 
+                        can be used to change space available for the labels.}
   \item{\dots}{ graphical parameters may also be supplied as arguments to the
           function (see \code{\link[graphics]{par}}). For comparison purposes, 
           it is good to set \code{zlim=c(-1,1)}. }
@@ -58,7 +72,8 @@ set.seed(13)
 x <- matrix(rnorm(1000), ncol = 10)
 x[1:20,5] <- x[1:20,5] + 10
 madPlot(x, new = TRUE, maxMAD = 2.5)
+madPlot2(x, new = TRUE, maxMAD = 2.5)
 ## in contrast
-corPlot(x, new = TRUE, minCor = -0.5)
+corPlot2(x, new = TRUE, minCor = -0.5)
 }
 \keyword{hplot}
