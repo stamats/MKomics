@@ -9,6 +9,7 @@ madMatrix <- function(x){
     mad.matrix[(i+1):anz, i] <- mad.matrix[i, ((i+1):anz)]
   }
   colnames(mad.matrix) <- colnames(x)
+  rownames(mad.matrix) <- colnames(x)
 
   return(mad.matrix)
 }

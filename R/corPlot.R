@@ -1,7 +1,7 @@
-corPlot <- function (x, new = FALSE, col, minCor = 0.5, labels = FALSE, lab.both.axes = FALSE,
-                     labcols = "black", title = "", cex.title = 1.2, protocol = FALSE, 
-                     cex.axis = 0.8, cex.axis.bar = 1, signifBar = 2, ...) 
-{
+corPlot <- function (x, new = FALSE, col, minCor = 0.5, labels = FALSE, 
+                     lab.both.axes = FALSE, labcols = "black", title = "", 
+                     cex.title = 1.2, protocol = FALSE, cex.axis = 0.8, 
+                     cex.axis.bar = 1, signifBar = 2, ...){
     n <- ncol(x)
     corr <- x
     if (new) 
