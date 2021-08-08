@@ -17,13 +17,16 @@ and local (Smith-Waterman) alignments with constant gap penalties
 (Merkl and Waack (2009), ISBN:978-3-527-32594-8).
 
 ## Installation
-The package requires Bioconductor package limma, which can be installed via
+The package requires Bioconductor packages limma and ComplexHeatmap, which can be 
+installed via
 
 ```{r, eval = FALSE}
 ## Install package BiocManager
 install.packages("BiocManager")
 ## Use BiocManager to install limma
 BiocManager::install("limma")
+## Use BiocManager to install ComplexHeatmap
+BiocManager::install("ComplexHeatmap")
 ```
 
 For the installation of package MKomics use
