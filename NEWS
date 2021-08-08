@@ -7,6 +7,7 @@
 ###########################################################
 - added new versions of corPlot, simPlot and madPlot based on package
   ComplexHeatmap
+- adapted links http -> https
 
 ###########################################################
 ## Version 0.6
