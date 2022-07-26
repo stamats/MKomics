@@ -16,7 +16,7 @@ corPlot(x, new = FALSE, col, minCor,
 corPlot2(x, new = FALSE, col, minCor = 0.5, labels = FALSE, 
          row.width = 6, column.height = 6, lab.both.axes = TRUE, 
          fontsize.axis = 12, title = "", fontsize.title = 16, 
-         signifBar = 2)
+         signifBar = 2, use_raster = FALSE)
 }
 \arguments{
   \item{x}{ data or correlation matrix, respectively }
@@ -51,6 +51,7 @@ corPlot2(x, new = FALSE, col, minCor = 0.5, labels = FALSE,
                     can be used to change space available for the labels.}
   \item{column.height}{ numerical value giving the height of the column in centimeters; i.e., 
                         can be used to change space available for the labels.}
+  \item{use_raster}{ see \code{\link[ComplexHeatmap]{Heatmap}}.}
   \item{\dots}{ graphical parameters may also be supplied as arguments to the
           function (see \code{\link[graphics]{par}}). For comparison purposes, 
           it is good to set \code{zlim=c(-1,1)}. }
@@ -62,6 +63,9 @@ corPlot2(x, new = FALSE, col, minCor = 0.5, labels = FALSE,
   If \code{min(x)}, respectively \code{min(cor(x))} is smaller than \code{minCor}, 
   the colors in \code{col} are adjusted such that the minimum correlation value 
   which is color coded is equal to \code{minCor}.
+  
+  The newer function \code{corPlot2} is based on function \code{Heatmap} of
+  Bioconductor package \pkg{ComplexHeatmap}.
 }
 \value{
   \code{invisible()}
@@ -74,7 +78,7 @@ corPlot2(x, new = FALSE, col, minCor = 0.5, labels = FALSE,
 }
 \author{ Matthias Kohl \email{Matthias.Kohl@stamats.de}}
 \note{
-  A first version of this function appeared in package SLmisc.
+  A first version of function \code{corPlot} appeared in package SLmisc.
 }
 \examples{
 ## only a dummy example

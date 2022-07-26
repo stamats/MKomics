@@ -1,7 +1,8 @@
 corPlot2 <- function(x, new = FALSE, col, minCor = 0.5, labels = FALSE, 
                      row.width = 6, column.height = 6, 
                      lab.both.axes = TRUE, fontsize.axis = 12,
-                     title = "", fontsize.title = 16, signifBar = 2){
+                     title = "", fontsize.title = 16, signifBar = 2,
+                     use_raster = FALSE){
   corr <- x
   if (new) 
     corr <- cor(x, use = "pairwise.complete.obs")
@@ -29,7 +30,8 @@ corPlot2 <- function(x, new = FALSE, col, minCor = 0.5, labels = FALSE,
                 row_names_max_width = unit(row.width, "cm"),
                 row_names_gp = gpar(fontsize = fontsize.axis),
                 column_names_max_height = unit(column.height, "cm"),
-                column_names_gp = gpar(fontsize = fontsize.axis))
+                column_names_gp = gpar(fontsize = fontsize.axis),
+                use_raster = use_raster)
   draw(ht, column_title = title, 
        column_title_gp = gpar(fontsize = fontsize.title))
   invisible(ht)
