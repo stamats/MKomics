@@ -20,9 +20,9 @@ and local (Smith-Waterman) alignments with constant gap penalties
 Package: \tab MKomics\cr
 Type: \tab Package\cr
 Version: \tab 0.8\cr
-Date: \tab 2022-07-26\cr
+Date: \tab 2022-09-06\cr
 Depends: \tab R(>= 3.5.0)\cr
-Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma\cr
+Imports: \tab stats, utils, graphics, grDevices, RColorBrewer, robustbase, limma, grid, circlize, ComplexHeatmap\cr
 Suggests: \tab knitr, rmarkdown\cr
 License: \tab LGPL-3\cr
 URL: \tab https://www.stamats.de/\cr

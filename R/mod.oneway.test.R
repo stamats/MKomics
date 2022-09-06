@@ -31,8 +31,8 @@ mod.oneway.test <- function(x, group, repeated = FALSE, subject,
     cont.matrix <- makeContrasts(contrasts = combs, levels=design)
     fit2 <- contrasts.fit(fit1, cont.matrix)
     fit3 <- eBayes(fit2)
-    res <- topTableF(fit3, adjust.method = adjust.method, number = Inf,
-                     sort.by = sort.by)
+    res <- topTable(fit3, coef = NULL, adjust.method = adjust.method, 
+                    number = Inf, sort.by = sort.by)
     levs <- levels(group)
     combs <- apply(combn(levs, 2), 2, paste0, collapse = " vs ")
     names(res) <- c(combs, "grand mean", "F", "p.value", "adj.p.value")

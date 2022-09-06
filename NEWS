@@ -6,6 +6,8 @@
 ## Version 0.8
 ###########################################################
 - added argument use_raster to corPlot2
+- replaced topTableF by topTable in function mod.oneway.test
+
 
 ###########################################################
 ## Version 0.7
@@ -14,10 +16,12 @@
   ComplexHeatmap
 - adapted links http -> https
 
+
 ###########################################################
 ## Version 0.6
 ###########################################################
 - removed some unnecessary changes of graphical parameters.
+
 
 ###########################################################
 ## Version 0.5
@@ -25,22 +29,26 @@
 - resetting old graphics parameters with no.readonly = TRUE
 - mod.t.test gained argument na.rm for computing group means
 
+
 ###########################################################
 ## Version 0.4
 ###########################################################
 - Removed (orphaned) package 'gplots' from suggests field, use standard 
   heatmap function from packages 'stats' instead
 
+
 ###########################################################
 ## Version 0.3
 ###########################################################
 - Added on.exit calls to simPlot, corPlot and madPlot
+
 
 ###########################################################
 ## Version 0.2
 ###########################################################
 - Changed computations in case of paired moderated t test.
 - Added moderated repeated-measures one-way ANOVA to mod.oneway.test
+
 
 ###########################################################
 ## Version 0.1
@@ -51,3 +59,4 @@
   pairwise.logfc, pairwise.fc, pairwise.mod.t.test, 
   repMeans, simPlot, stringDist, stringSim, traceBack,
   twoWayAnova from package MKmisc
+
