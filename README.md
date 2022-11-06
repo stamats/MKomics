@@ -1,4 +1,4 @@
-# <img src="https://github.com/stamats/MKomics/raw/master/hex-MKomics.png" alt="MKdescr" width="120"/> &emsp; MKomics
+# <img src="https://github.com/stamats/MKomics/raw/master/hex-MKomics.png" alt="MKomics" width="120"/> &emsp; MKomics
 The repository includes the development version of R package MKomics
 
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
