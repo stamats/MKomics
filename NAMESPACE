@@ -5,7 +5,7 @@ importFrom("grDevices", "colorRampPalette")
 importFrom("robustbase", "covMcd", "covOGK")
 importFrom("RColorBrewer", "brewer.pal")
 importFrom("limma", "lmFit", "makeContrasts", "contrasts.fit", "eBayes",
-           "topTable", "topTableF")
+           "topTable")
 importFrom("grid", "unit", "gpar")
 importFrom("circlize", "colorRamp2")
 importFrom("ComplexHeatmap", "Heatmap", "draw")

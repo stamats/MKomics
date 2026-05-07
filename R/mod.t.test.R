@@ -49,12 +49,21 @@ mod.t.test <- function(x, group = NULL, paired = FALSE, subject,
       res <- topTable(fit3, coef = 1, adjust.method = adjust.method, number = Inf,
                       confint = TRUE, sort.by = sort.by)[,-4]
       meanA <- rowMeans(x[,group.tmp == "A"], na.rm = na.rm)
+      nA <- rowSums(!is.na(x[,group.tmp == "A"]))
+      sdA <- sqrt(rowMeans((x[,group.tmp == "A"]-meanA)^2, na.rm = na.rm)*nA/(nA-1))
       meanB <- rowMeans(x[,group.tmp == "B"], na.rm = na.rm)
+      nB <- rowSums(!is.na(x[,group.tmp == "B"]))
+      sdB <- sqrt(rowMeans((x[,group.tmp == "B"]-meanB)^2, na.rm = na.rm)*nB/(nB-1))
       names(res) <- c("difference in means", "2.5%", "97.5%", "t", "p.value",
                       "adj.p.value", "B")
-      res <- data.frame(res, meanA, meanB, check.names = FALSE)
+      res <- data.frame(res, fit3$df.total, meanA, meanB, sdA, sdB, nA, nB, 
+                        check.names = FALSE)
+      names(res)[8] <- "df"
+      res <- res[,c(1:4,8,5:7,9:14)]
       levs <- levels(group)
-      names(res)[8:9] <- paste("mean of", levs)
+      names(res)[9:10] <- paste("mean of", levs)
+      names(res)[11:12] <- paste("SD of", levs)
+      names(res)[13:14] <- paste("n of", levs)
     }
   }
   res
